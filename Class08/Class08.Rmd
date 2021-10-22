@@ -1,0 +1,217 @@
+---
+title: "Machine Learning 1"
+Date: "10/22/2021"
+Author: "Caitriona Brennan"
+output: github_document
+---
+#Clustering Methods
+
+kmeans clustering in R is done with the 'kmeans()' function. 
+Here we makeup some data to test and learn with. 
+#rev command reverses the data set
+#cbind binds vectors by column. rbind binds them by rows
+```{r}
+tmp <- c(rnorm(30, 3), rnorm(30, -3))
+data <- cbind(x = tmp, y=rev(tmp))
+plot(data)
+```
+
+Run 'kmeans()' set K to 2 nstrt 20. The thing with kmeans is you have to tell it how many clusters you want 
+
+```{r}
+```
+
+
+```{r}
+km <- kmeans(data, centers = 2, nstart=20)
+km
+```
+
+>Q. how many points are in each cluster?
+```{r}
+km$size
+```
+
+```{r}
+km$size
+```
+>Q. What 'component' of your result object details cluster assignmnet/membership?
+
+```{r}
+km$cluster
+```
+
+
+>Q. What 'component' of your result object details cluster center?
+
+```{r}
+km$centers
+```
+
+
+>Q. Plot x colored by the kmeans cluster assignmnet and add cluster centers as blue points?
+#cluster center 
+
+```{r}
+plot(data, col=km$cluster)
+points(km$centers, col='blue', pch=15, cex=2)
+```
+
+#hclust - hierarchicial clustering
+We will use the "hclust()" function on the same data as before and see how this method works
+
+```{r}
+hc <- hclust( dist(data))
+hc
+```
+
+hclust has a plot method
+
+```{r}
+plot(hc)
+```
+
+To find our membership vector we need to "cut" the tree and for this we use the 'cutree()' function and tell it the height to cut at. 
+
+```{r}
+cutree(hc, h=7)
+```
+
+
+```{r}
+plot(hc)
+abline
+```
+
+
+We can also use 'cutree()' and state the number of k clusters we want...
+
+```{r}
+grps <- cutree(hc, k=2)
+```
+
+```{r}
+plot(data, col=grps)
+```
+
+
+#princical component analysis (PCA)
+
+PCA is a useful analysis method when you have lots of dimensions in your data...
+
+##PCA of UK food data
+
+Import the data from a CSV file
+
+```{r}
+url <- "https://tinyurl.com/UK-foods"
+x <- read.csv(url)
+```
+
+How many row and cols?
+
+```{r}
+dim(x)
+```
+
+#remove first col as this is not a col just the rows but it is seeing it as a col
+
+```{r}
+x[,1]
+```
+
+
+```{r}
+rownames(x) <- x[,1]
+x <- x[,-1]
+x
+```
+#below is a better way to do this. above way - you will lose a col evertime you run it
+
+```{r}
+url <- "https://tinyurl.com/UK-foods"
+x <- read.csv(url, row.names = 1)
+x
+```
+
+
+```{r}
+barplot(as.matrix(x), col=rainbow(17))
+```
+
+```{r}
+barplot(as.matrix(x), col=rainbow(17))
+```
+
+
+```{r}
+mycols <- rainbow(nrow(x))
+pairs(x, col=mycols, pch=16)
+```
+
+##PCA to the rescue
+
+Here we will use the base R function for PCA, which is called 'prcomp()'
+First transpose the data with "t" because 'prcomp()' wants the the rows. It says this in the help page 
+
+```{r}
+t(x)
+prcomp(x)
+```
+
+```{r}
+pca <- prcomp( t(x))
+summary(pca)
+```
+
+We want score plot (a.k.a PCA plot). Basically of PC1 vs PC2
+
+```{r}
+attributes(pca)
+```
+
+We are after the pca$x component for this plot
+
+```{r}
+plot(pca$x[,1:2])
+text(pca$x[,1:2], labels = colnames(x))
+```
+We can also examine the PCA "loadings", which tell us how much original variables contribute to each new PCA...
+
+```{r}
+barplot(pca$rotation[,1], las=2)
+```
+
+
+## RNASEQ
+
+```{r}
+url2 <- "https://tinyurl.com/expression-CSV"
+rna.data <- read.csv(url2, row.names=1)
+head(rna.data)
+```
+
+```{r}
+nrow(rna.data)
+```
+
+```{r}
+ncol(rna.data)
+```
+```{r}
+colnames(rna.data)
+```
+
+```{r}
+pca.rna <- prcomp(t(rna.data), scale=TRUE)
+summary(pca.rna)
+```
+#sumamry above shows that PC2 in the plot below is not as significant as PC1. i.e. it is the short line on the graph
+
+```{r}
+plot(pca.rna$x[,1:2])
+text(pca.rna$x[,1:2], labels = colnames(rna.data))
+```
+
+
+
