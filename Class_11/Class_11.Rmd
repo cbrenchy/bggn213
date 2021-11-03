@@ -40,22 +40,11 @@ pdb.data$Total[1]
 round((pdb.data$Total[1]/sum(pdb.data$Total))*100,2)
 ```
 
-\#Q3: Type HIV in the PDB website search box on the home page and determine how many HIV-1 protease structures are in the current PDB?
-
-```{r}
-
-```
+# \#Q3: Type HIV in the PDB website search box on the home page and determine how many HIV-1 protease structures are in the current PDB?
 
 ![](1hsg.png)
 
-```{r}
-![](1hsg.png)
-```
-
-
-
-
-#Do a normal mode analysis (NMA) a prediction of the conformational variability and intrinsic dynamics of this protein
+\#Do a normal mode analysis (NMA) a prediction of the conformational variability and intrinsic dynamics of this protein
 
 ```{r}
 library(bio3d)
@@ -69,13 +58,8 @@ m <- nma(pdb)
 plot(m)
 ```
 
-#make a little movie(trajectory) for viewing in VMD.
+\#make a little movie(trajectory) for viewing in VMD.
 
 ```{r}
 mktrj(m, file="nma.pdb")
 ```
-
-
-
-
-
