@@ -63,3 +63,5 @@ plot(m)
 ```{r}
 mktrj(m, file="nma.pdb")
 ```
+
+
