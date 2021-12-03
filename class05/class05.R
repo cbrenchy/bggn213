@@ -1,3 +1,10 @@
+#' ---
+#' title: "Data Visualization"
+#' output: github_document
+#' author: "Caitriona Brennan"
+#' ---
+
+
 # Class 05: Data Visualization
 
 # Today we are going to use ggplot2 package
@@ -59,11 +66,11 @@ p + scale_color_manual(values=c("blue", "gray", "red"))
 
 # Lets explore the gapminder dataset
 # install.packages("gapminder")
-library(gapminder)
-head(gapminder)
+#library(gapminder)
+#head(gapminder)
 
 # Let's make a new plot of year vs lifeExp
-ggplot(gapminder) +
+#ggplot(gapminder) +
   aes(x=year, y=lifeExp, col=continent) +
   geom_jitter(width=0.3,alpha=0.4) +
   geom_violin( aes(group=year), alpha=0.2,
@@ -71,8 +78,8 @@ ggplot(gapminder) +
 
 # Install the plotly
 # install.packages("plotly")
-library(plotly)
-ggplotly()
+#library(plotly)
+#ggplotly()
 
 
 
