@@ -1,6 +1,7 @@
 # Caitriona's Bioinformatics Portfolio
 
 Bioinformatics class at UC San Diego Fall 2021
+![](https://bioboot.github.io/bggn213_F21/assets/img/logo.png)
 
 ## Contents
 
