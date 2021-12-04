@@ -1,0 +1,65 @@
+---
+title: "FindaGeneProject_HeatMap"
+output:
+  pdf_document: default
+  html_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+```{r}
+library(bio3d)
+```
+
+
+```{r}
+alignment <- read.fasta("FindaGene_Alignment.fasta")
+head(alignment)
+```
+
+
+```{r}
+seqID <- seqidentity(alignment, normalize=TRUE, similarity=FALSE, ncore=1, nseg.scale=1)
+
+```
+
+
+```{r}
+heatmap(seqID, cexRow = 0.7, cexCol = 0.7, margins=c(8,3))
+```
+
+
+```{r}
+consensus <- consensus(alignment)
+```
+
+```{r}
+rat_seq <- read.fasta("RAT_ChosenSeq.fst")
+```
+
+
+
+```{r}
+blast_ratseq <- blast.pdb(rat_seq)
+head(blast_ratseq$hit.tbl)
+top.hits <- plot(blast_ratseq)
+head(top.hits$hits)
+```
+
+```{r}
+top.hits <- plot.blast(blast_ratseq, cutoff=188)
+head(top.hits$hits)
+get.pdb(top.hits)
+```
+
+```{r}
+ids <- c("4O9S_A", "3FMZ_A", "1AQB_A")
+anno <- pdb.annotate(ids)
+anno
+```
+
+
+
