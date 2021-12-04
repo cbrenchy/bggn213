@@ -8,7 +8,6 @@ Class:
 - 04 Introduction to R
 - 05 [Data Visualisation with ggplot2](https://github.com/cbrenchy/bggn213/blob/main/class05/class05.md)
 - 06 R Functions
-- 07 Something else
 - 08 [Introduction to machine learning for Bioinformatics](https://github.com/cbrenchy/bggn213/blob/main/Class08/Class08.pdf)
 - 09 [Halloween Candy Analysis](https://github.com/cbrenchy/bggn213/blob/main/class_09_mini_project/Halloween_mini_project.Rmd)
 - 11 [Structural Bioinformatics](https://github.com/cbrenchy/bggn213/blob/main/Class_11/Class_11.Rmd)
