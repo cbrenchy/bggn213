@@ -4,11 +4,15 @@ Bioinformatics class at UC San Diego Fall 2021
 ![](https://bioboot.github.io/bggn213_F21/assets/img/logo.png)
 
 ## Contents
-
+Class:
 - 04 Introduction to R
 - 05 Data Visualisation with ggplot2
 - 06 R Functions
 - 07 Something else
-- 08 
-- 09  [Halloween Candy Analysis](https://github.com/cbrenchy/bggn213/blob/main/class_09_mini_project/Halloween_mini_project.Rmd)
-- This is a [link](urlhere)
+- 08 Introduction to machine learning for Bioinformatics
+- 09 [Halloween Candy Analysis](https://github.com/cbrenchy/bggn213/blob/main/class_09_mini_project/Halloween_mini_project.Rmd)
+- 11 Structural Bioinformatics
+- 15 Transcriptomics and the analysis of RNA-Seq data
+- 16 RNA-Seq analysis mini-project
+- 17 Vaccination rate mini project
+- 19 Genome informatics
