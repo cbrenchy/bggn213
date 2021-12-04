@@ -1,0 +1,84 @@
+---
+title: "Class 18"
+author: "Caitriona Brennan"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+#Section1 Proportin of G/G in a population
+
+```{r}
+mxl <- read.csv("373531-SampleGenotypes-Homo_sapiens_Variation_Sample_rs8067378.csv")
+head(mxl)
+```
+
+Use table to tell you the number of occurrences of each allele in the column
+
+```{r}
+table(mxl$Genotype..forward.strand.)
+```
+
+
+```{r}
+table(mxl$Genotype..forward.strand.) / nrow(mxl) *100
+```
+
+Now let's look at a different population. I picked the GBR population
+
+```{r}
+gbr <- read.csv("373522-SampleGenotypes-Homo_sapiens_Variation_Sample_rs8067378.csv")
+head(gbr)
+```
+
+Find proportion of G|G
+
+```{r}
+round(table(gbr$Genotype..forward.strand.) / nrow(gbr) * 100, 2)
+```
+
+This variant that is associated with childhood asthma is more frequent in the GBR population than the MXL population
+
+Let's now dig into this further.
+
+##Section 4: Population scale analysis 
+One sample is obviously not enough to know what is happening in a population. You are
+interested in assessing genetic differences on a population scale. So, you processed about
+~230 samples and did the normalization on a genome level. Now, you want to find whether
+there is any association of the 4 asthma-associated SNPs (rs8067378...) on ORMDL3
+expression.
+
+How many samples do we have?
+
+```{r}
+expr <- read.table("population_scale_analysis")
+head(expr)
+```
+
+```{r}
+nrow(expr)
+```
+
+How many of each genotype?
+
+```{r}
+table(expr$geno)
+```
+
+To summarize the results in a figure lets make a boxplot
+
+```{r}
+library(ggplot2)
+```
+
+The expression of ORMDL3 is lowered with this SNP
+
+```{r}
+ggplot(expr) + aes(geno , exp, fill=geno) +
+  geom_boxplot(notch=TRUE)
+```
+
+
+
