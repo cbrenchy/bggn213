@@ -6,7 +6,7 @@ Bioinformatics class at UC San Diego Fall 2021
 ## Contents
 Class:
 - 04 Introduction to R
-- 05 Data Visualisation with ggplot2
+- 05 [Data Visualisation with ggplot2](https://github.com/cbrenchy/bggn213/blob/main/class05/class05.md)
 - 06 R Functions
 - 07 Something else
 - 08 Introduction to machine learning for Bioinformatics
