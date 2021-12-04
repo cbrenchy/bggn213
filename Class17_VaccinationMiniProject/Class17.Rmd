@@ -2,9 +2,7 @@
 title: "Class17_VaccinationMiniProject"
 author: "Caitriona Brennan"
 Date: "11-24-2021"
-output:
-  pdf_document:
-    latex_engine: xelatex
+output: github_document
 ---
 
 

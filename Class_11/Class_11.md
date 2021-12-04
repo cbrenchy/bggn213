@@ -73,12 +73,9 @@ round((pdb.data$Total[1]/sum(pdb.data$Total))*100,2)
 
     ## [1] 87.35
 
-\#Q3: Type HIV in the PDB website search box on the home page and
-determine how many HIV-1 protease structures are in the current PDB?
+# \#Q3: Type HIV in the PDB website search box on the home page and determine how many HIV-1 protease structures are in the current PDB?
 
-``` r
-#![](1hsg.png)
-```
+![](1hsg.png)
 
 \#Do a normal mode analysis (NMA) a prediction of the conformational
 variability and intrinsic dynamics of this protein
@@ -119,17 +116,19 @@ pdb
 m <- nma(pdb)
 ```
 
-    ##  Building Hessian...     Done in 0.044 seconds.
-    ##  Diagonalizing Hessian...    Done in 0.13 seconds.
+    ##  Building Hessian...     Done in 0.024 seconds.
+    ##  Diagonalizing Hessian...    Done in 0.264 seconds.
 
 ``` r
 plot(m)
 ```
 
-![](Class_11_files/figure-gfm/unnamed-chunk-8-1.png)<!-- -->
+![](Class_11_files/figure-gfm/unnamed-chunk-7-1.png)<!-- -->
 
 \#make a little movie(trajectory) for viewing in VMD.
 
 ``` r
 mktrj(m, file="nma.pdb")
 ```
+
+add

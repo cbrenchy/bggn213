@@ -1,9 +1,7 @@
 ---
 title: 'Class_09_mini_project'
-output:
-  pdf_document: default
-  html_document: default
 author: 'Caitriona Brennan'
+output: github_document
 ---
 
 
