@@ -16,3 +16,4 @@ Class:
 - 17 [Vaccination rate mini project](https://github.com/cbrenchy/bggn213/blob/main/Class17_VaccinationMiniProject/Class17.pdf)
 - 19 [Genome informatics](https://github.com/cbrenchy/bggn213/blob/main/Class_18_Genome_Informatics/Class18_GenomeInformatics.pdf)
 - 20 [Finda Gene Project](https://github.com/cbrenchy/bggn213/blob/main/FindaGeneProject/FindaGene_SeqID.Rmd)
+- Q15 First Year Exam [Q15 Covid-19 Variants in California](https://github.com/cbrenchy/bggn213/Q15 1st Year Final/1st_year_final_CBrennan.Rmd) 
