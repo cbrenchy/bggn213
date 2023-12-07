@@ -1,6 +1,6 @@
 Machine Learning 1
 ================
-hello
+hello again
 \#Clustering Methods
 
 kmeans clustering in R is done with the ‘kmeans()’ function. Here we
